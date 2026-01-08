@@ -21,7 +21,7 @@ public class OrderController {
     }
 
     @GetMapping("/customers/{customerId}/orders")
-    public ResponseEntity<ApiResponseDTO<OrderResponseDTO>> listOrders(@PathVariable("customerId") Long customerId,
+    public ResponseEntity<ApiResponseDTO<OrderResponseDTO>> listOrders(@PathVariable Long customerId,
                                                                        @RequestParam(name= "page",defaultValue = "0")Integer page,
                                                                        @RequestParam(name= "pageSize", defaultValue = "10")Integer pageSize) {
         Page<OrderResponseDTO> body=orderService.findAllByCustomerId(customerId, PageRequest.of(page,pageSize));
