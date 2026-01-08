@@ -1,10 +1,13 @@
 package com.tech.ordems.service;
 
+import com.tech.ordems.controller.dto.OrderResponseDTO;
 import com.tech.ordems.entity.OrderEntity;
 import com.tech.ordems.entity.OrderItem;
 import com.tech.ordems.listener.dto.OrderCreatedEventDTO;
 import com.tech.ordems.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +30,11 @@ public class OrderService {
         entity.setItems(getOrdemItens(event));
         entity.setTotal(getTotal(event));
         orderRepository.save(entity);
+     }
+
+     public Page<OrderResponseDTO> findAllByCustomerId(@NonNull Long customerId, PageRequest pageRequest) {
+         Page<OrderEntity> orders= orderRepository.findAllByCustomerId(customerId,pageRequest);
+        return orders.map(OrderResponseDTO::fromEntity);
      }
 
     private BigDecimal getTotal(OrderCreatedEventDTO event) {
