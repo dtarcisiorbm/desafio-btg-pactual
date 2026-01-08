@@ -21,13 +21,6 @@ public class OrderEntity {
 
     private List<OrderItem> items;
 
-    public OrderEntity(Long orderId, Long customerId, BigDecimal total, List<OrderItem> items) {
-        this.orderId = orderId;
-        this.customerId = customerId;
-        this.total = total;
-        this.items = items;
-    }
-
     public Long getOrderId() {
         return orderId;
     }
