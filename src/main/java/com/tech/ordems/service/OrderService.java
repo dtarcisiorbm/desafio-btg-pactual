@@ -35,6 +35,7 @@ public class OrderService {
 
         entity.setItems(getOrdemItens(event));
         entity.setTotal(getTotal(event));
+         System.out.println(entity);
         orderRepository.save(entity);
      }
 
