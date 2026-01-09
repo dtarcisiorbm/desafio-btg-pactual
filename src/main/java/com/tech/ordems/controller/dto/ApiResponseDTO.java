@@ -1,6 +1,8 @@
 package com.tech.ordems.controller.dto;
 
 import java.util.List;
+import java.util.Map;
 
-public record ApiResponseDTO<T>(List<T> data, PaginationResponseDTO paginationResponse) {
+
+public record ApiResponseDTO<T>(Map<String, Object> summary, List<T> data, PaginationResponseDTO paginationResponse) {
 }

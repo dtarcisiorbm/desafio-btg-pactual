@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 public class OrderController {
     private final OrderService orderService;
@@ -25,7 +27,9 @@ public class OrderController {
                                                                        @RequestParam(name= "page",defaultValue = "0")Integer page,
                                                                        @RequestParam(name= "pageSize", defaultValue = "10")Integer pageSize) {
         Page<OrderResponseDTO> body=orderService.findAllByCustomerId(customerId, PageRequest.of(page,pageSize));
+        var totalOnOrders=orderService.findTotalOnOrderByCustomerId(customerId);
         return ResponseEntity.ok(new ApiResponseDTO<>(
+                Map.of("totalOnOrders",totalOnOrders),
                 body.getContent(),
                 PaginationResponseDTO.fromPage(body)
         ));
