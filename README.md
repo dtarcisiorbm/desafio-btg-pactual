@@ -1,32 +1,36 @@
-# Desafio BTG Pactual - Microsserviço de Pedidos
+<p align="center" width="100%">
+    <img width="50%" src="https://github.com/buildrun-tech/buildrun-desafio-backend-btg-pactual/blob/main/images/btg-logo.jpg"> 
+</p>
 
-Este projeto é uma solução para o desafio técnico do BTG Pactual. Trata-se de um microsserviço desenvolvido em **Java** com **Spring Boot** que processa pedidos recebidos via fila de mensagens (**RabbitMQ**), armazena-os em um banco de dados NoSQL (**MongoDB**) e disponibiliza uma API REST para consulta do valor total e quantidade de pedidos por cliente.
 
-## 🚀 Tecnologias Utilizadas
+<h3 align="center">
+  Desafio Backend do BTG Pactual
+</h3>
 
-* **Java 21**
-* **Spring Boot 3.x**
-* **MongoDB** (Persistência de dados)
-* **RabbitMQ** (Mensageria e processamento assíncrono)
-* **Docker & Docker Compose** (Containerização da infraestrutura)
-* **Maven** (Gerenciamento de dependências)
+<p align="center">
 
-## 🏗️ Arquitetura
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-%2304D361">
+  <img alt="Language: Java" src="https://img.shields.io/badge/language-java-green">
+  <img alt="Version: 1.0" src="https://img.shields.io/badge/version-1.0-yellowgreen">
 
-1.  **Consumo:** A aplicação escuta a fila `btg-pactual-order-created` no RabbitMQ.
-2.  **Processamento:** Ao receber uma mensagem (evento de pedido criado), o sistema calcula o valor total do pedido.
-3.  **Persistência:** Os dados consolidados são salvos na coleção `tb_orders` no MongoDB.
-4.  **API:** Um endpoint REST é exposto para consultar o histórico de pedidos de um cliente específico.
+</p>
 
-## ⚙️ Pré-requisitos
 
-* [Docker](https://www.docker.com/) e Docker Compose instalados.
-* Java 21 (JDK) instalado (opcional se usar apenas para build, o projeto possui Maven Wrapper).
 
-## 👣 Passo a Passo para Rodar
+## Desafio
+- Confira o enunciado completo, [clicando aqui](./problem.md).
 
-### 1. Clonar o repositório
+## Como interagir com o banco de dados?
+- Utilizamos o [DBGate](https://www.dbgate.io/)
 
-```bash
-git clone [https://github.com/seu-usuario/desafio-btg-pactual.git](https://github.com/seu-usuario/desafio-btg-pactual.git)
-cd desafio-btg-pactual
+
+## :rocket: Tecnologias utilizadas
+
+* Java 17
+* Spring Boot
+* Spring Data MongoDB
+* RabbitMQ
+* Docker
+
+:mag: Baixe o projeto e teste você mesmo na prática.
+
